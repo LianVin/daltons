@@ -61,7 +61,7 @@ public class RoleController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Role> updateUser(@RequestBody Role role, @PathVariable Integer id) {
+    public ResponseEntity<Role> updateRole(@RequestBody Role role, @PathVariable Integer id) {
         Role updatedRole = roleService.findById(id);
             if (role.getRole() != null) {
                 updatedRole.setRole(role.getRole());
