@@ -1,0 +1,33 @@
+<div style="height: 100vh;">
+  <mat-toolbar color="primary" class="navbar">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon class="sidenav">menu</mat-icon>
+      </button>
+      <img class="image" src="../../../assets/daltonsBild.jpg" alt="search-icon" fxHide.lt-md="true">
+      <span fxShow.lg >
+        <h1 class="daltons">Daltons</h1>
+        <p class="itsOnly" fxHide.lt-md="true">It's Only Rock'n'Roll</p>
+      </span>
+      <div class="spacer" fxShow="true" fxHide.lt-md="true">
+        <a class="tap" href="#" mat-button>News</a>
+        <a class="tap" href="#" mat-button>Music</a>
+        <a class="tap" href="#" mat-button>Members</a>
+        <a class="tap" href="#" mat-button>History</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <div class="sidenavlist">
+        <a class="sidenavtap" href="#" mat-button>News</a>
+        <a class="sidenavtap" href="#" mat-button>Music</a>
+        <a class="sidenavtap" href="#" mat-button>Members</a>
+        <a class="sidenavtap" href="#" mat-button>History</a>
+      </div>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+</div>
