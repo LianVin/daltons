@@ -1,0 +1,45 @@
+.example-icon {
+    padding: 0 14px;
+  }
+.spacer{
+  margin-left: auto;
+  margin-right: 2vw;
+}
+.tap{
+  margin-left: 5vw;
+  font-size: x-large;
+  color: #000;
+}
+.navbar{
+  height: 250px;
+  justify-content: center;
+  background-color:#ffd106;
+}
+.image{
+  height: 200px;
+  width: 200px;
+}
+.daltons{
+  font-size: xx-large;
+  color: #000;
+}
+.itsOnly{
+  font-size: x-large;
+  color: #000;
+}
+@media only screen and (max-width: 959px) {
+  .navbar{
+    height: 15px;
+    background-color:#ffd106;
+  }
+  .sidenavlist{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+  }
+  .sidenavtap{
+    justify-content: center;
+    margin-top: 2vh;
+    font-size: x-large;
+  }
+}
