@@ -33,4 +33,9 @@ public class Comment {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @JoinColumn(name = "POST_ID")
     private Post postId;
+
+    @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JoinColumn(name = "USER_ID")
+    private User userId;
 }

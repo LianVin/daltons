@@ -1,6 +1,9 @@
 package com.daltons.backend.controller;
 
+import com.daltons.backend.model.Comment;
+import com.daltons.backend.model.Picture;
 import com.daltons.backend.model.User;
+import com.daltons.backend.service.comment.CommentService;
 import com.daltons.backend.service.user.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +17,17 @@ import java.util.List;
 @RequestMapping(value = "/user")
 public class UserController {
     private final UserService userService;
+    private final CommentService commentService;
+    private final CommentController commentController;
 
-    public UserController(UserService userService) {
+    public UserController(
+            UserService userService,
+            CommentService commentService,
+            CommentController commentController
+            ) {
         this.userService = userService;
+        this.commentService = commentService;
+        this.commentController = commentController;
     }
 
     @PostMapping
@@ -54,6 +65,14 @@ public class UserController {
         if (user == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
+        List<Comment> comments = commentService.findAll();
+        for (Comment comment : comments) {
+            if (user.getUserId() == comment.getUserId().getUserId()) {
+                commentController.deleteComment(comment.getCommentId());
+            }
+        }
+
         userService.delete(user);
         return new ResponseEntity<>(HttpStatus.OK);
     }
