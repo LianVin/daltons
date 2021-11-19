@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { role } from 'src/app/models/role';
 import { user } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user/user.service';

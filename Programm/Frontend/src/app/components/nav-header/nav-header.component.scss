@@ -43,3 +43,14 @@
     font-size: x-large;
   }
 }
+@media only screen and (min-width: 959px) {
+  .sidenavlist{
+   height: 0%;
+   width: 0%;
+  }
+  .sidenavtap{
+    height: 0%;
+    width: 0%;
+  }
+}
+  

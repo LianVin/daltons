@@ -1,4 +1,4 @@
-<div style="height: 100vh;">
+<div>
   <mat-toolbar color="primary" class="navbar">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -11,19 +11,20 @@
       </span>
       <div class="spacer" fxShow="true" fxHide.lt-md="true">
         <a class="tap" href="#" mat-button>News</a>
-        <a class="tap" href="#" mat-button>Music</a>
         <a class="tap" href="#" mat-button>Members</a>
         <a class="tap" href="#" mat-button>History</a>
+        <a class="tap" routerLink="music" mat-button>Music</a>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
-
+</div>
+<div>
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav>
       <mat-nav-list>
         <div class="sidenavlist">
         <a class="sidenavtap" href="#" mat-button>News</a>
-        <a class="sidenavtap" href="#" mat-button>Music</a>
+        <a class="tap" routerLink="music" mat-button>Music</a>
         <a class="sidenavtap" href="#" mat-button>Members</a>
         <a class="sidenavtap" href="#" mat-button>History</a>
       </div>
