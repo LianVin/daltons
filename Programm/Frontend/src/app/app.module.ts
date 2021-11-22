@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NavHeaderComponent } from './components/nav-header/nav-header.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,16 +15,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavHeaderComponent
-  ],
+    declarations: [
+        AppComponent,
+        NavHeaderComponent,
+        FooterComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatTabsModule,
     NoopAnimationsModule,
-    FlexLayoutModule, 
+    FlexLayoutModule,
     MatIconModule,
     MatListModule,
     MatToolbarModule,
