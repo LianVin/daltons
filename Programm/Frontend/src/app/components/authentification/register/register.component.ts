@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { role } from 'src/app/models/role';
 import { user } from 'src/app/models/user';
-import { UserService } from 'src/app/service/user/user.service';
+import { RoleService } from 'src/app/service/role/role.service';
+import { UserService } from 'src/app/service/user/user.service'
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterComponent implements OnInit {
   user: user;
   basic: role;
  
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService, private _roleService: RoleService) { }
   
   ngOnInit(): void {}
 
@@ -31,8 +32,7 @@ export class RegisterComponent implements OnInit {
     this.user.lastName = this.register.lastName;
     this.user.email = this.register.email;
     this.user.password = this.register.password;
-    this.basic.role = "basic";
-    this.user.roleId = this.basic;
-    this._userService.createUser(this.register)
+    this.user.role = this._roleService.getRole[1];
+    this._userService.createUser(this.register);
   }
 }

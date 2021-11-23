@@ -7,5 +7,5 @@ export interface user {
     lastName: string;
     email: string;
     password: string;
-    roleId: role;
+    role: role;
   }
