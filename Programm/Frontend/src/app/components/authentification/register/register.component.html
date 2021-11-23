@@ -1,0 +1,17 @@
+<div class="register">
+    <div>
+        <mat-label class="label">UserName:</mat-label>
+        <mat-label class="label">Vorname:</mat-label>
+        <mat-label class="label">Nachname:</mat-label>
+        <mat-label class="label">E-Mail:</mat-label>
+        <mat-label class="label">Password:</mat-label>
+    </div>
+    <div> 
+        <input class="input" matInput [(ngModel)]="register.userName">
+        <input class="input" matInput [(ngModel)]="register.firstName">
+        <input class="input" matInput [(ngModel)]="register.lastName">
+        <input class="input" matInput [(ngModel)]="register.email">
+        <input class="input" matInput [(ngModel)]="register.password">
+    </div> 
+    <button class="button" (click)="registeration()">Registrieren</button>
+</div>

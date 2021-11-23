@@ -8,29 +8,43 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatIconModule} from '@angular/material/icon';
-import {MatListModule} from '@angular/material/list';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { LoginComponent } from './components/authentification/login/login.component';
+import { RegisterComponent } from './components/authentification/register/register.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MusicComponent } from './components/music/music.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        NavHeaderComponent,
-        FooterComponent
-    ],
+  declarations: [
+    AppComponent,
+    NavHeaderComponent,
+    LoginComponent,
+    RegisterComponent,
+    FooterComponent,
+    FooterComponent
+    MusicComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatTabsModule,
     NoopAnimationsModule,
-    FlexLayoutModule,
+    FlexLayoutModule, 
+    MatFormFieldModule,
     MatIconModule,
     MatListModule,
     MatToolbarModule,
+    FormsModule,
     MatSidenavModule,
     MatButtonModule,
+    HttpClientModule,
     BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent]
