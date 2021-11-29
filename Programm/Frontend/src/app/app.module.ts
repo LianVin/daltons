@@ -15,7 +15,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LoginComponent } from './components/authentification/login/login.component';
 import { RegisterComponent } from './components/authentification/register/register.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { MusicComponent } from './components/music/music.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
@@ -28,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    FooterComponent
+    FooterComponent,
     MusicComponent
   ],
   imports: [
