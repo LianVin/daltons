@@ -1,9 +1,7 @@
 package com.daltons.backend.controller;
 
 import com.daltons.backend.model.Role;
-import com.daltons.backend.model.User;
 import com.daltons.backend.service.role.RoleService;
-import com.daltons.backend.service.user.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

@@ -1,9 +1,9 @@
 package com.daltons.backend.controller;
 
 import com.daltons.backend.model.Comment;
-import com.daltons.backend.model.Picture;
 import com.daltons.backend.model.User;
 import com.daltons.backend.service.comment.CommentService;
+import com.daltons.backend.service.role.RoleService;
 import com.daltons.backend.service.user.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,15 +18,17 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
     private final CommentService commentService;
+    private final RoleService roleService;
     private final CommentController commentController;
 
     public UserController(
             UserService userService,
             CommentService commentService,
-            CommentController commentController
-            ) {
+            RoleService roleService, CommentController commentController
+    ) {
         this.userService = userService;
         this.commentService = commentService;
+        this.roleService = roleService;
         this.commentController = commentController;
     }
 
@@ -35,6 +37,7 @@ public class UserController {
         if(userService.findById(user.getUserId()) != null){
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }else {
+            user.setRoleId(roleService.findById(2));
             User newUser = userService.save(user);
             if (newUser == null){
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
