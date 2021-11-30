@@ -1,4 +1,5 @@
-<div *ngFor="let post of posts;">
+<div class="center">
+<div *ngFor="let post of posts">
   <mat-card class="example-card">
     <mat-card-subtitle>{{ post?.createdAt | date: 'fullDate' }}</mat-card-subtitle>
     <mat-card-title>{{ (post.title.length>20)? (post.title | slice:0:20)+'..': (post.title) }}</mat-card-title>
@@ -13,6 +14,9 @@
     </mat-card-footer>
   </mat-card>
 </div>
-<button mat-mini-fab color="primary" routerLink="/new/news/" aria-label="Example icon button with a menu icon">
+</div>
+<div style="width: 100vw;">
+<button mat-mini-fab color="primary" class="align-right"  routerLink="/new/news/" aria-label="Example icon button with a menu icon">
   <mat-icon>add</mat-icon>
 </button>
+</div>
