@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { resourceUsage } from 'process';
 import { user } from 'src/app/models/user';
 import { environment } from 'src/environments/environment';
 
@@ -8,12 +9,12 @@ import { environment } from 'src/environments/environment';
 })
 
 export class UserService {
-  private url = environment.backendUrl + "/user/"
+  private url = environment.backendUrl + "user"
 
   constructor(private httpClient: HttpClient) { }
 
   getUser() {
-    return this.httpClient.get<user []>(this.url);
+    return this.httpClient.get<user[]>(this.url);
   }
 
   getUserbyId(id: number) {
@@ -29,6 +30,6 @@ export class UserService {
   }
 
   createUser(user: user) {
-    return this.httpClient.post(this.url, user);
+    return this.httpClient.post(this.url, user).subscribe(result=>{console.log(result)});
   }
 }

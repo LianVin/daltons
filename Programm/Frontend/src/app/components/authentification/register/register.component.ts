@@ -19,20 +19,19 @@ export class RegisterComponent implements OnInit {
     password: null
   };
 
-  user: user;
-  basic: role;
+  user = <user>{};
+  users: user[] = [];
  
-  constructor(private _userService: UserService, private _roleService: RoleService) { }
+  constructor(private _userService: UserService) { }
   
   ngOnInit(): void {}
 
   registeration(): void{
     this.user.firstName = this.register.firstName;
-    this.user.userName = this.register.userName;
+    this.user.username = this.register.userName;
     this.user.lastName = this.register.lastName;
     this.user.email = this.register.email;
     this.user.password = this.register.password;
-    this.user.role = this._roleService.getRole[1];
-    this._userService.createUser(this.register);
+    this._userService.createUser(this.user);
   }
 }
