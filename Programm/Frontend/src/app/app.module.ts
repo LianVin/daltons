@@ -19,6 +19,14 @@ import { MusicComponent } from './components/music/music.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PostsComponent } from './components/posts/posts.component';
+import { PostDetailViewComponent } from './components/post-detail-view/post-detail-view.component';
+import {MatCardModule} from '@angular/material/card';
+import { NewNewsComponent } from './components/new-news/new-news.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AlertNewsComponent } from './components/alert-news/alert-news.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +35,11 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    MusicComponent
+    MusicComponent,
+    PostsComponent,
+    PostDetailViewComponent,
+    NewNewsComponent,
+    AlertNewsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +55,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatButtonModule,
     HttpClientModule,
+    MatInputModule,
+    MatCardModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent]

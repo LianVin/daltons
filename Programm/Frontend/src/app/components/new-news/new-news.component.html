@@ -1,0 +1,17 @@
+<form class="example-form" [formGroup]="news">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Titel</mat-label>
+      <input matInput formControlName="titel">
+    </mat-form-field>
+
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Text</mat-label>
+        <textarea matInput placeholder="Text" formControlName="text"></textarea>
+      </mat-form-field>
+    </p>
+    <mat-checkbox class="example-margin" formControlName="isConcert">Ist es ein Konzert?</mat-checkbox>
+  </form>
+
+
+  <button click="createPost()">Post erstellen</button>
