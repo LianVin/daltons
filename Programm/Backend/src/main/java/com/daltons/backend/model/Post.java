@@ -37,6 +37,7 @@ public class Post {
 
     @CreationTimestamp
     @NotNull
+    @CreationTimestamp
     private Date createdAt;
 
     @OneToMany(mappedBy = "commentId")
