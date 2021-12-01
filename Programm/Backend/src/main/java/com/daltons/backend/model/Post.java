@@ -35,6 +35,7 @@ public class Post {
     @NotNull
     private boolean isConcert;
 
+    @CreationTimestamp
     @NotNull
     @CreationTimestamp
     private Date createdAt;
