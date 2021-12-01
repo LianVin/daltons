@@ -41,9 +41,7 @@ import { AlertNewsComponent } from './components/alert-news/alert-news.component
     NewNewsComponent,
     AlertNewsComponent,
     FooterComponent,
-    MusicComponent
-    main
-  ],
+    MusicComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,
