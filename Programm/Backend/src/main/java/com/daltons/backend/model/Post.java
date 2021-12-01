@@ -8,9 +8,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.dom4j.Text;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -34,7 +36,14 @@ public class Post {
     private boolean isConcert;
 
     @NotNull
+    @CreationTimestamp
     private Date createdAt;
+
+    @OneToMany(mappedBy = "commentId")
+    private List<Comment> comments;
+
+    @OneToMany(mappedBy = "pictureId")
+    private List<Picture> picutres;
 
     @ManyToOne
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
