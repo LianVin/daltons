@@ -2,10 +2,7 @@ package com.daltons.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,6 +16,7 @@ import java.util.List;
 @ToString
 public class Role {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ROLE_ID", nullable = false)
     private int roleId;
 

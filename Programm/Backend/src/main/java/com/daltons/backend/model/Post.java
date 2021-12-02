@@ -3,10 +3,7 @@ package com.daltons.backend.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.dom4j.Text;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -23,6 +20,7 @@ import java.util.List;
 @ToString
 public class Post {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "POST_ID", nullable = false)
     private int postId;
 

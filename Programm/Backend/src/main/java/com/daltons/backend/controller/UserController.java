@@ -58,6 +58,16 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
+
+    @GetMapping("/getByUsername/{username}")
+    public ResponseEntity<User> getByUsername(@PathVariable String username) {
+        User user = userService.findByUsername(username);
+        if (user == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Integer id) {
         User user = userService.findById(id);
@@ -68,7 +78,7 @@ public class UserController {
 
         List<Comment> comments = commentService.findAll();
         for (Comment comment : comments) {
-            if (user.getUserId() == comment.getUserId().getUserId()) {
+            if (comment.getUserId() != null && user.getUserId() == comment.getUserId().getUserId()) {
                 commentController.deleteComment(comment.getCommentId());
             }
         }
