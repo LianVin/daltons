@@ -10,5 +10,6 @@ public interface UserService extends CrudService<User, Integer> {
     List<User> findAll();
     void deleteById(Integer id);
     User findById(Integer id);
+    User findByUsername(String username);
     void delete(User object);
 }

@@ -16,9 +16,13 @@ import java.util.List;
 @RequestMapping(value = "/role")
 public class RoleController {
     private final RoleService roleService;
+    private final UserController userController;
+    private final UserService userService;
 
-    public RoleController(RoleService roleService) {
+    public RoleController(RoleService roleService, UserController userController, UserService userService) {
         this.roleService = roleService;
+        this.userController = userController;
+        this.userService = userService;
     }
 
     @PostMapping
@@ -52,11 +56,16 @@ public class RoleController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteRole(@PathVariable Integer id) {
         Role role = roleService.findById(id);
-
         if (role == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        roleService.delete(role);
+        for (User user : userController.getAllUser().getBody()) {
+            if (user.getRoleId() != null && id.equals(user.getRoleId().getRoleId())) {
+                user.setRoleId(null);
+                userService.save(user);
+            }
+        }
+        roleService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
