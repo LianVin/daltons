@@ -27,11 +27,22 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   registeration(): void{
-    this.user.firstName = this.register.firstName;
-    this.user.username = this.register.userName;
-    this.user.lastName = this.register.lastName;
-    this.user.email = this.register.email;
-    this.user.password = this.register.password;
-    this._userService.createUser(this.user);
+    this._userService.getUser().subscribe(result => {
+      result = this.users;
+    })
+    this.users.forEach(function (value) {
+      if(value.username == this.user.username){
+        this.user.firstName = this.register.firstName;
+        this.user.username = this.register.userName;
+        this.user.lastName = this.register.lastName;
+        this.user.email = this.register.email;
+        this.user.password = this.register.password;
+        this._userService.createUser(this.user);
+      }  
+      else{
+        console.log("Username Vorhanden");
+      }  
+    });
+    
   }
 }

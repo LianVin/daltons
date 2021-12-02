@@ -32,4 +32,8 @@ export class UserService {
   createUser(user: user) {
     return this.httpClient.post(this.url, user).subscribe(result=>{console.log(result)});
   }
+
+  getUserByName(username: String){
+    return this.httpClient.get<user>(this.url + "/getByUsername/" + username);
+  }
 }
