@@ -39,6 +39,7 @@ public class PostController {
 
     @PostMapping
     public ResponseEntity<Post> createPost(@Validated @RequestBody Post post) {
+        System.out.println(post.getIsConcert());
         if(postService.findById(post.getPostId()) != null){
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }else {

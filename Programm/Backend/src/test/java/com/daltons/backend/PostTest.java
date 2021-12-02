@@ -30,7 +30,7 @@ public class PostTest {
 		Post basePost = new Post();
 		basePost.setTitle("Test Post");
 		basePost.setText("Some Text");
-		basePost.setConcert(true);
+		basePost.setIsConcert(true);
 
 		// TEST Start
 		Post newPost = postController.createPost(basePost).getBody();
@@ -53,7 +53,7 @@ public class PostTest {
 		Post basePost = new Post();
 		basePost.setTitle("Test Post");
 		basePost.setText("Some Text");
-		basePost.setConcert(true);
+		basePost.setIsConcert(true);
 		Post newPost = postController.createPost(basePost).getBody();
 
 		// TEST Start
@@ -73,7 +73,7 @@ public class PostTest {
 		Post basePost = new Post();
 		basePost.setTitle("Test Post");
 		basePost.setText("Some Text");
-		basePost.setConcert(true);
+		basePost.setIsConcert(true);
 		Post newPost = postController.createPost(basePost).getBody();
 
 		// TEST Start
@@ -88,7 +88,7 @@ public class PostTest {
 		Post basePost = new Post();
 		basePost.setTitle("Test Post");
 		basePost.setText("Some Text");
-		basePost.setConcert(true);
+		basePost.setIsConcert(true);
 		Post newPost = postController.createPost(basePost).getBody();
 
 		Comment comment = new Comment();

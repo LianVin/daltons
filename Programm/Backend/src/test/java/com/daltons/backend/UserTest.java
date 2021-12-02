@@ -126,7 +126,7 @@ public class UserTest {
 		Post basePost = new Post();
 		basePost.setTitle("Test Post");
 		basePost.setText("Some Text");
-		basePost.setConcert(true);
+		basePost.setIsConcert(true);
 		basePost.setUserId(newUser);
 		Post newPost = postController.createPost(basePost).getBody();
 

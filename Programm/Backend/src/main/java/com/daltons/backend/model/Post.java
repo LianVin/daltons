@@ -33,7 +33,7 @@ public class Post {
     private String text;
 
     @NotNull
-    private boolean isConcert;
+    private Boolean isConcert;
 
     @NotNull
     @CreationTimestamp
