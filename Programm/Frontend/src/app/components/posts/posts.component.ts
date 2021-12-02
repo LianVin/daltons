@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { post } from 'src/app/models/post';
+import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/service/post/post.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { PostService } from 'src/app/service/post/post.service';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  posts: post[]=[];
+  posts: Post[]=[];
 
   constructor(private postService: PostService) {
    }

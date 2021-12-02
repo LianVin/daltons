@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { role } from 'src/app/models/role';
+import { Role } from 'src/app/models/role';
 import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
@@ -13,22 +13,22 @@ export class RoleService {
   constructor(private httpClient: HttpClient) { }
 
   getRole() {
-    return this.httpClient.get<role []>(this.url);
+    return this.httpClient.get<Role []>(this.url);
   }
 
   getRolebyId(id: number) {
-    return this.httpClient.get<role>(this.url + id);
+    return this.httpClient.get<Role>(this.url + id);
   }
 
   deleteRole(id: number) {
     return this.httpClient.delete(this.url + id);
   }
 
-  updateRole(role: role) {
-    return this.httpClient.put<role>(this.url + role.roleId, role);
+  updateRole(role: Role) {
+    return this.httpClient.put<Role>(this.url + role.roleId, role);
   }
 
-  createRole(role: role) {
+  createRole(role: Role) {
     return this.httpClient.post(this.url, role);
   }
 }

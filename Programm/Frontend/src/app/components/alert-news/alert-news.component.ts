@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { post } from 'src/app/models/post';
+import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/service/post/post.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { PostService } from 'src/app/service/post/post.service';
   styleUrls: ['./alert-news.component.scss'],
 })
 export class AlertNewsComponent implements OnInit {
-  post: post;
+  post: Post;
   news: FormGroup;
 
   constructor(
@@ -29,7 +29,7 @@ export class AlertNewsComponent implements OnInit {
     this.route.paramMap.subscribe((m) => {
       this.postService
         .getPostbyId(Number.parseInt(m.get('id')))
-        .subscribe((res: post) => {
+        .subscribe((res: Post) => {
           this.post = res;
           this.news.get('titel').setValue(this.post.title);
           this.news.get('text').setValue(this.post.text);

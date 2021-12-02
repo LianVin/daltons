@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { post } from 'src/app/models/post';
+import { Post } from 'src/app/models/post';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,22 +13,22 @@ export class PostService {
   constructor(private httpClient: HttpClient) { }
 
   getPosts() {
-    return this.httpClient.get<post[]>(this.url);
+    return this.httpClient.get<Post[]>(this.url);
   }
 
   getPostbyId(id: number) {
-    return this.httpClient.get<post>(this.url + id);
+    return this.httpClient.get<Post>(this.url + id);
   }
 
   deletePost(id: number) {
     return this.httpClient.delete(this.url + id);
   }
 
-  updatePost(post: post) {
-    return this.httpClient.put<post>(this.url + post.postId, post);
+  updatePost(post: Post) {
+    return this.httpClient.put<Post>(this.url + post.postId, post);
   }
 
-  createPost(post: post) {
+  createPost(post: Post) {
     return this.httpClient.post(this.url, post);
   }
 }

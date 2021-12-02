@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { comment } from 'src/app/models/comment';
-import { commentCreate } from 'src/app/models/commentCreate';
+import { Comment } from 'src/app/models/comment';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -14,22 +13,22 @@ export class CommentService {
   constructor(private httpClient: HttpClient) { }
 
   getComments() {
-    return this.httpClient.get<comment[]>(this.url);
+    return this.httpClient.get<Comment[]>(this.url);
   }
 
   getCommentbyId(id: number) {
-    return this.httpClient.get<comment>(this.url + id);
+    return this.httpClient.get<Comment>(this.url + id);
   }
 
   deleteComment(id: number) {
     return this.httpClient.delete(this.url + id);
   }
 
-  updateComment(comment: comment) {
-    return this.httpClient.put<comment>(this.url + comment.commentId, comment);
+  updateComment(comment: Comment) {
+    return this.httpClient.put<Comment>(this.url + comment.commentId, comment);
   }
 
-  createComment(comment: commentCreate) {
+  createComment(comment: Comment) {
     return this.httpClient.post(this.url, comment);
   }
 }

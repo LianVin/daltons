@@ -1,8 +1,8 @@
 import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { commentCreate } from 'src/app/models/commentCreate';
-import { post } from 'src/app/models/post';
+import { Post } from 'src/app/models/post';
+import { Comment } from 'src/app/models/comment';
 import { CommentService } from 'src/app/service/comment/comment.service';
 import { PostService } from 'src/app/service/post/post.service';
 
@@ -12,7 +12,7 @@ import { PostService } from 'src/app/service/post/post.service';
   styleUrls: ['./post-detail-view.component.scss'],
 })
 export class PostDetailViewComponent implements OnInit {
-  post: post;
+  post: Post;
   value = 'Super Post :)';
 
   constructor(
@@ -25,17 +25,16 @@ export class PostDetailViewComponent implements OnInit {
     this.route.paramMap.subscribe((m) => {
       this.postService
         .getPostbyId(Number.parseInt(m.get('id')))
-        .subscribe((res: post) => {
+        .subscribe((res: Post) => {
           this.post = res;
         });
     });
   }
 
   createComment() {
-    let commentToCreate: commentCreate;
-    commentToCreate.postId = this.post.postId;
-    commentToCreate.text = this.value;
-    this.commentService.createComment(commentToCreate);
-    this.value = '';
+    let newComment = new Comment();
+    newComment.postId = this.post.postId;
+    newComment.text = this.value;
+    this.commentService.createComment(newComment).subscribe();
   }
 }

@@ -1,13 +1,12 @@
-import { comment } from "./comment";
-import { picture } from "./picture";
-import { user } from "./user";
+import { Comment } from "./comment";
+import { Picture } from "./picture";
 
-export interface post{
+export class Post {
     postId: number;
     title: string;
     text: string;
     isConcert: boolean;
     createdAt: Date; 
-    pictures: picture[];
-    comments: comment[];
+    pictures: Picture[];
+    comments: Comment[];
 }
