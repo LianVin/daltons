@@ -2,8 +2,10 @@ package com.daltons.backend.controller;
 
 import com.daltons.backend.model.Comment;
 import com.daltons.backend.model.Picture;
+import com.daltons.backend.model.Post;
 import com.daltons.backend.model.User;
 import com.daltons.backend.service.comment.CommentService;
+import com.daltons.backend.service.post.PostService;
 import com.daltons.backend.service.user.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,15 +21,21 @@ public class UserController {
     private final UserService userService;
     private final CommentService commentService;
     private final CommentController commentController;
+    private final PostService postService;
+    private final PostController postController;
 
     public UserController(
             UserService userService,
             CommentService commentService,
-            CommentController commentController
+            CommentController commentController,
+            PostService postService,
+            PostController postController
             ) {
         this.userService = userService;
         this.commentService = commentService;
         this.commentController = commentController;
+        this.postService = postService;
+        this.postController = postController;
     }
 
     @PostMapping
@@ -79,7 +87,16 @@ public class UserController {
         List<Comment> comments = commentService.findAll();
         for (Comment comment : comments) {
             if (comment.getUserId() != null && user.getUserId() == comment.getUserId().getUserId()) {
-                commentController.deleteComment(comment.getCommentId());
+                comment.setUserId(null);
+                commentService.save(comment);
+            }
+        }
+
+        List<Post> posts = postService.findAll();
+        for (Post post : posts) {
+            if (post.getUserId() != null && user.getUserId() == post.getUserId().getUserId()) {
+                post.setUserId(null);
+                postService.save(post);
             }
         }
 

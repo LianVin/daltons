@@ -3,8 +3,10 @@ package com.daltons.backend.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
-import lombok.*;
-import org.dom4j.Text;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -33,7 +35,6 @@ public class Post {
     @NotNull
     private boolean isConcert;
 
-    @CreationTimestamp
     @NotNull
     @CreationTimestamp
     private Date createdAt;

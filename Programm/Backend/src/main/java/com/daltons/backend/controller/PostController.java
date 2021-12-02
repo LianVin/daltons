@@ -76,14 +76,14 @@ public class PostController {
         List<Comment> comments = commentService.findAll();
         for (Comment comment : comments) {
             if (comment.getPostId() != null && post.getPostId() == comment.getPostId().getPostId()) {
-                commentController.deleteComment(comment.getCommentId());
+                commentService.deleteById(comment.getCommentId());
             }
         }
 
         List<Picture> pictures = pictureService.findAll();
         for (Picture picture : pictures) {
             if (picture.getPostId() != null && post.getPostId() == picture.getPostId().getPostId()) {
-                pictureController.deletePicture(picture.getPictureId());
+                pictureService.deleteById(picture.getPictureId());
             }
         }
 

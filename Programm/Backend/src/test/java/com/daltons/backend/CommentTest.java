@@ -28,7 +28,7 @@ public class CommentTest {
 	public void createComment() {
 		// PREP
 		Comment baseComment = new Comment();
-		baseComment.setText("Test Post");
+		baseComment.setText("Test Comment");
 		baseComment.setPostId(postController.getPostById(1).getBody());
 		baseComment.setUserId(userController.getUserById(1).getBody());
 
@@ -37,7 +37,7 @@ public class CommentTest {
 		assertEquals(baseComment, newComment);
 
 		// DELETE
-		postController.deletePost(newComment.getCommentId());
+		commentController.deleteComment(newComment.getCommentId());
 	}
 
 	@Test
@@ -51,7 +51,7 @@ public class CommentTest {
 	public void updateComment(){
 		// PREP
 		Comment baseComment = new Comment();
-		baseComment.setText("Test Post");
+		baseComment.setText("Test Comment");
 		baseComment.setPostId(postController.getPostById(1).getBody());
 		baseComment.setUserId(userController.getUserById(1).getBody());
 		Comment newComment = commentController.createComment(baseComment).getBody();
@@ -64,14 +64,14 @@ public class CommentTest {
 		assertEquals(updatedComment.getText(), respond.getText());
 
 		// DELETE
-		postController.deletePost(newComment.getCommentId());
+		commentController.deleteComment(newComment.getCommentId());
 	}
 
 	@Test
 	public void deleteComment() {
 		// PREP
 		Comment baseComment = new Comment();
-		baseComment.setText("Test Post");
+		baseComment.setText("Test Comment");
 		baseComment.setPostId(postController.getPostById(1).getBody());
 		baseComment.setUserId(userController.getUserById(1).getBody());
 		Comment newComment = commentController.createComment(baseComment).getBody();
@@ -80,6 +80,9 @@ public class CommentTest {
 		assertNotNull(commentController.getCommentById(newComment.getCommentId()));
 		commentController.deleteComment(newComment.getCommentId());
 		assertNull(commentController.getCommentById(newComment.getCommentId()).getBody());
+
+		// DELETE
+		commentController.deleteComment(newComment.getCommentId());
 	}
 
 }

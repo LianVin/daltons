@@ -34,7 +34,7 @@ public class PictureTest {
 		assertEquals(basePicture, newPicture);
 
 		// DELETE
-		postController.deletePost(newPicture.getPictureId());
+		pictureController.deletePicture(newPicture.getPictureId());
 	}
 
 	@Test
@@ -61,7 +61,7 @@ public class PictureTest {
 		assertEquals(updatedPicture.getUrl(), respond.getUrl());
 
 		// DELETE
-		postController.deletePost(newPicture.getPictureId());
+		pictureController.deletePicture(newPicture.getPictureId());
 	}
 
 	@Test
