@@ -18,31 +18,36 @@ export class RegisterComponent implements OnInit {
     email: null,
     password: null
   };
-
-  user = <user>{};
-  users: user[] = [];
- 
-  constructor(private _userService: UserService) { }
+  public users: user[] = [];
+  public user = <user>{};
+  public e: any = {};
+  
+  constructor(private _userService: UserService, private _roleService: RoleService) { }
   
   ngOnInit(): void {}
 
   registeration(): void{
     this._userService.getUser().subscribe(result => {
-      result = this.users;
+      this.users = result;
     })
-    this.users.forEach(function (value) {
-      if(value.username == this.user.username){
+    try{this.users.forEach(userInLoop => {
+      if(userInLoop.username === this.user.username){
+        console.log("Username Vorhanden");
+      }  
+      else{
         this.user.firstName = this.register.firstName;
         this.user.username = this.register.userName;
         this.user.lastName = this.register.lastName;
         this.user.email = this.register.email;
         this.user.password = this.register.password;
-        this._userService.createUser(this.user);
+        this._roleService.getRolebyId(2).subscribe((result) => {
+          this.user.roleId = result;
+        });
+        throw this.e;
       }  
-      else{
-        console.log("Username Vorhanden");
-      }  
-    });
-    
+    });}
+    catch(e){
+      this._userService.createUser(this.user);
+    }
   }
 }
