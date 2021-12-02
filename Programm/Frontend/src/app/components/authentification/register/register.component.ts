@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { role } from 'src/app/models/role';
-import { user } from 'src/app/models/user';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Role } from 'src/app/models/role';
+import { User } from 'src/app/models/user';
 import { RoleService } from 'src/app/service/role/role.service';
-import { UserService } from 'src/app/service/user/user.service'
+import { UserService } from 'src/app/service/user/user.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
-
 export class RegisterComponent implements OnInit {
   register: any = {
     userName: null,
@@ -49,5 +50,4 @@ export class RegisterComponent implements OnInit {
     catch(e){
       this._userService.createUser(this.user);
     }
-  }
 }

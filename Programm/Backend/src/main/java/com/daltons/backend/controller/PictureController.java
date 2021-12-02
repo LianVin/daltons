@@ -23,7 +23,7 @@ public class PictureController {
     public ResponseEntity<Picture> createPicture(@Validated @RequestBody Picture picture) {
         if(pictureService.findById(picture.getPictureId()) != null){
             return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }else {
+        } else {
             Picture newPicture = pictureService.save(picture);
             if (newPicture == null){
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -59,7 +59,7 @@ public class PictureController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Picture> updateUser(@RequestBody Picture picture, @PathVariable Integer id) {
+    public ResponseEntity<Picture> updatePicture(@RequestBody Picture picture, @PathVariable Integer id) {
         Picture updatedPicture = pictureService.findById(id);
             if (picture.getDescription() != null) {
                 updatedPicture.setDescription(picture.getDescription());

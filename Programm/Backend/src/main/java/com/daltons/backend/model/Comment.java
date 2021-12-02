@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,6 +21,7 @@ import java.util.Date;
 @ToString
 public class Comment {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "COMMENT_ID", nullable = false)
     private int commentId;
 
@@ -27,6 +29,7 @@ public class Comment {
     private String text;
 
     @NotNull
+    @CreationTimestamp
     private Date createdAt;
 
     @ManyToOne

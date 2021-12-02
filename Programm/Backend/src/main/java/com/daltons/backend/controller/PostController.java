@@ -39,14 +39,15 @@ public class PostController {
 
     @PostMapping
     public ResponseEntity<Post> createPost(@Validated @RequestBody Post post) {
+        System.out.println(post.getIsConcert());
         if(postService.findById(post.getPostId()) != null){
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }else {
-            Post newpost = postService.save(post);
-            if (newpost == null){
+            Post newPost = postService.save(post);
+            if (newPost == null){
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
-            return new ResponseEntity<>(newpost, HttpStatus.CREATED);
+            return new ResponseEntity<>(newPost, HttpStatus.CREATED);
         }
     }
 
@@ -75,15 +76,15 @@ public class PostController {
 
         List<Comment> comments = commentService.findAll();
         for (Comment comment : comments) {
-            if (post.getPostId() == comment.getPostId().getPostId()) {
-                commentController.deleteComment(comment.getCommentId());
+            if (comment.getPostId() != null && post.getPostId() == comment.getPostId().getPostId()) {
+                commentService.deleteById(comment.getCommentId());
             }
         }
 
         List<Picture> pictures = pictureService.findAll();
         for (Picture picture : pictures) {
-            if (post.getPostId() == picture.getPostId().getPostId()) {
-                pictureController.deletePicture(picture.getPictureId());
+            if (picture.getPostId() != null && post.getPostId() == picture.getPostId().getPostId()) {
+                pictureService.deleteById(picture.getPictureId());
             }
         }
 

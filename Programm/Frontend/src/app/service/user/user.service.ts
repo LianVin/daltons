@@ -18,15 +18,15 @@ export class UserService {
   }
 
   getUserbyId(id: number) {
-    return this.httpClient.get<user>(this.url + id);
+    return this.httpClient.get<User>(this.url + id);
   }
 
   deleteUser(id: number) {
     return this.httpClient.delete(this.url + id);
   }
 
-  updateUser(user: user) {
-    return this.httpClient.put<user>(this.url + user.userId, user);
+  updateUser(user: User) {
+    return this.httpClient.put<User>(this.url + user.userId, user);
   }
 
   createUser(user: user) {

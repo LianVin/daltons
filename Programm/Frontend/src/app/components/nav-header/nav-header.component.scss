@@ -27,6 +27,9 @@
   font-size: x-large;
   color: #000;
 }
+a {
+  text-decoration: none;
+}
 @media only screen and (max-width: 959px) {
   .navbar{
     height: 15px;
@@ -41,6 +44,13 @@
     justify-content: center;
     margin-top: 2vh;
     font-size: x-large;
+  }
+
+  @media only screen and (min-width: 959px) {
+    .sidenavlist{
+      height: 0;
+      width: 0;
+    }
   }
 }
 @media only screen and (min-width: 959px) {

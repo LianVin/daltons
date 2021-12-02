@@ -1,7 +1,7 @@
-import { user } from "./user";
+import { User } from "./user";
 
-export interface role {
+export class Role {
     roleId: number;
     role: string;
-    userId: user;
+    userId: User;
   }

@@ -1,0 +1,35 @@
+
+<div class="center">
+  <button mat-mini-fab color="primary" class="align-right" routerLink="/alter/news/{{post.postId}}"
+  aria-label="Example icon button with a menu icon">
+  <span class="material-icons">
+    edit
+    </span>
+</button>
+
+  <mat-card class="example-card">
+    <mat-card-subtitle>{{ post?.createdAt | date: 'fullDate' }}</mat-card-subtitle>
+    <mat-card-title>{{post.title}}</mat-card-title>
+    <mat-card-content>
+     <!-- <img src="{{post.pictures[0].url}}" alt="{{post.pictures[0].description}}"> -->
+      <p>{{post.text}}</p>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+      <mat-form-field class="example-form-field" appearance="fill">
+        <input matInput type="text" [(ngModel)]="value">
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <button mat-button click="createComment()">Komentieren</button>
+    </mat-card-actions>
+    <mat-card-footer>
+    </mat-card-footer>
+  </mat-card>
+
+  <div *ngFor="let comment of post.comments">
+    <mat-card>{{comment.text}}</mat-card>
+  </div>
+
+</div>

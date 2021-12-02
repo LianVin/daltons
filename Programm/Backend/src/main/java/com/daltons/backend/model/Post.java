@@ -7,10 +7,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.dom4j.Text;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,6 +22,7 @@ import java.util.Date;
 @ToString
 public class Post {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "POST_ID", nullable = false)
     private int postId;
 
@@ -31,10 +33,17 @@ public class Post {
     private String text;
 
     @NotNull
-    private boolean isConcert;
+    private Boolean isConcert;
 
     @NotNull
+    @CreationTimestamp
     private Date createdAt;
+
+    @OneToMany(mappedBy = "commentId")
+    private List<Comment> comments;
+
+    @OneToMany(mappedBy = "pictureId")
+    private List<Picture> picutres;
 
     @ManyToOne
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

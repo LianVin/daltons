@@ -59,7 +59,7 @@ public class CommentController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Comment> updateUser(@RequestBody Comment comment, @PathVariable Integer id) {
+    public ResponseEntity<Comment> updateComment(@RequestBody Comment comment, @PathVariable Integer id) {
         Comment updatedComment = commentService.findById(id);
             if (comment.getText() != null) {
                 updatedComment.setText(comment.getText());
