@@ -1,6 +1,6 @@
 import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/models/post';
 import { Comment } from 'src/app/models/comment';
 import { CommentService } from 'src/app/service/comment/comment.service';
@@ -18,7 +18,8 @@ export class PostDetailViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {

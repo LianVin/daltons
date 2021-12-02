@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
     this._roleService.getRolebyId(1).subscribe((result) => {
       user.roleId = result;
       this._userService.createUser(user).subscribe(() => {
-        this.router.navigate(['/news/']);
+        this.router.navigate(['/']);
       });
     });
   }
