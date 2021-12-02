@@ -12,37 +12,42 @@ import { UserService } from 'src/app/service/user/user.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  newUser: FormGroup;
-
-  constructor(
-    fb: FormBuilder,
-    private _userService: UserService,
-    private _roleService: RoleService,
-    private router: Router
-  ) {
-    this.newUser = fb.group({
-      username: '',
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-    });
-  }
-
+  register: any = {
+    userName: null,
+    firstName: null,
+    lastName: null,
+    email: null,
+    password: null
+  };
+  public users: user[] = [];
+  public user = <user>{};
+  public e: any = {};
+  
+  constructor(private _userService: UserService, private _roleService: RoleService) { }
+  
   ngOnInit(): void {}
 
-  registeration(): void {
-    let user = new User();
-    user.firstName = this.newUser.get('username').value;
-    user.username = this.newUser.get('firstName').value;
-    user.lastName = this.newUser.get('lastName').value;
-    user.email = this.newUser.get('email').value;
-    user.password = this.newUser.get('password').value;
-    this._roleService.getRolebyId(1).subscribe((result) => {
-      user.roleId = result;
-      this._userService.createUser(user).subscribe(() => {
-        this.router.navigate(['/']);
-      });
-    });
-  }
+  registeration(): void{
+    this._userService.getUser().subscribe(result => {
+      this.users = result;
+    })
+    try{this.users.forEach(userInLoop => {
+      if(userInLoop.username === this.user.username){
+        console.log("Username Vorhanden");
+      }  
+      else{
+        this.user.firstName = this.register.firstName;
+        this.user.username = this.register.userName;
+        this.user.lastName = this.register.lastName;
+        this.user.email = this.register.email;
+        this.user.password = this.register.password;
+        this._roleService.getRolebyId(2).subscribe((result) => {
+          this.user.roleId = result;
+        });
+        throw this.e;
+      }  
+    });}
+    catch(e){
+      this._userService.createUser(this.user);
+    }
 }

@@ -1,6 +1,7 @@
 package com.daltons.backend.controller;
 
 import com.daltons.backend.model.Comment;
+import com.daltons.backend.service.role.RoleService;
 import com.daltons.backend.model.Picture;
 import com.daltons.backend.model.Post;
 import com.daltons.backend.model.User;
@@ -20,6 +21,7 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
     private final CommentService commentService;
+    private final RoleService roleService;
     private final CommentController commentController;
     private final PostService postService;
     private final PostController postController;
@@ -33,6 +35,7 @@ public class UserController {
             ) {
         this.userService = userService;
         this.commentService = commentService;
+        this.roleService = roleService;
         this.commentController = commentController;
         this.postService = postService;
         this.postController = postController;
@@ -43,6 +46,7 @@ public class UserController {
         if(userService.findById(user.getUserId()) != null){
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }else {
+            user.setRoleId(roleService.findById(2));
             User newUser = userService.save(user);
             if (newUser == null){
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

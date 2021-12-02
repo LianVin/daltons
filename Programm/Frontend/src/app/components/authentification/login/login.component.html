@@ -1,1 +1,11 @@
-<p>login works!</p>
+<div class="register">
+    <div>
+        <mat-label class="label">UserName:</mat-label>
+        <mat-label class="label">Password:</mat-label>
+    </div>
+    <div> 
+        <input class="input" matInput [(ngModel)]="logins.userName">
+        <input class="input" matInput [(ngModel)]="logins.password">
+    </div> 
+    <button class="button" (click)="login()">Login</button>
+</div>
