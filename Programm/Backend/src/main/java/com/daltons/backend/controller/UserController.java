@@ -31,6 +31,7 @@ public class UserController {
             CommentService commentService,
             CommentController commentController,
             PostService postService,
+            RoleService roleService,
             PostController postController
             ) {
         this.userService = userService;
