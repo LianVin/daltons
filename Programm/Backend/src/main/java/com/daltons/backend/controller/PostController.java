@@ -101,6 +101,9 @@ public class PostController {
             if (post.getTitle() != null) {
                 updatedPost.setTitle(post.getTitle());
             }
+            if (post.getIsConcert() != null) {
+                updatedPost.setIsConcert(post.getIsConcert());
+            }
             return new ResponseEntity<>(postService.save(updatedPost), HttpStatus.OK);
     }
 }

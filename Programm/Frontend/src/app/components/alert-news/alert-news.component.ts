@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/service/post/post.service';
 
@@ -16,7 +16,8 @@ export class AlertNewsComponent implements OnInit {
   constructor(
     fb: FormBuilder,
     private postService: PostService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.news = fb.group({
       titel: '',
@@ -44,7 +45,8 @@ export class AlertNewsComponent implements OnInit {
     this.post.isConcert = this.news.get('isConcert').value;
     this.postService.updatePost(this.post).subscribe(
       (res) => {
-        alert('Post erfolgreich erstellt');
+        alert('Post erfolgreich bearbeitet');
+        this.router.navigate(['/news/' + this.post.postId]);
       },
       (err) => {
         alert('Post konnte nicht erstellt werden Error: ' + err);
