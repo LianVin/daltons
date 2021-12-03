@@ -34,8 +34,9 @@ export class PostDetailViewComponent implements OnInit {
 
   createComment() {
     let newComment = new Comment();
-    newComment.postId = this.post.postId;
+    newComment.postId = this.post;
     newComment.text = this.value;
+    console.log(newComment)
     this.commentService.createComment(newComment).subscribe();
   }
 }
