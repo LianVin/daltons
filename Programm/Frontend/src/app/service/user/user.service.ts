@@ -33,6 +33,6 @@ export class UserService {
   }
 
   getUserByName(username: String){
-    return this.httpClient.get<User>(this.url + "/getByUsername/" + username);
+    return this.httpClient.get<User>(this.url + "getByUsername/" + username);
   }
 }

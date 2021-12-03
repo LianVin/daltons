@@ -31,30 +31,21 @@ export class RegisterComponent implements OnInit {
 
   registeration(): void{
     let user = new User();
-    this._userService.getUser().subscribe(result => {
-      this.users = result;
-    })
-    try{this.users.forEach(userInLoop => {
-      if(userInLoop.username === user.username){
-        console.log("Username Vorhanden");
-      }  
-      else{
-        user.firstName = this.newUser.get('firstName').value;
-        user.username = this.newUser.get('username').value;
-        user.lastName = this.newUser.get('lastName').value;
-        user.email = this.newUser.get('email').value;
-        user.password = this.newUser.get('password').value;
-        this._roleService.getRolebyId(2).subscribe((result) => {
+    user.firstName = this.newUser.get('firstName').value;
+    user.username = this.newUser.get('username').value;
+    user.lastName = this.newUser.get('lastName').value;
+    user.email = this.newUser.get('email').value;
+    user.password = this.newUser.get('password').value;
+    this._userService.getUserByName(user.username).subscribe(result => {
+      if (result == null) {
+        this._roleService.getRolebyId(1).subscribe((result) => {
           user.roleId = result;
-          console.log(user)
+          this._userService.createUser(user).subscribe();
+          this.router.navigate(['/news/']); 
         });
-        throw this.e;
-      }  
-    });}
-    catch(e){
-      console.log(user)
-      this._userService.createUser(user).subscribe();
-      this.router.navigate(['/news/']); 
-    }
+      } else {
+        console.log("Username already in use")
+      }
+    })
   }
 }
