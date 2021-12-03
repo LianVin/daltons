@@ -16,7 +16,6 @@ const routes: Routes = [
   {path:'news/:id', component: PostDetailViewComponent},
   {path:'new/news', component: NewNewsComponent },
   {path:'alter/news/:id', component: AlertNewsComponent}
-
 ];
 
 @NgModule({

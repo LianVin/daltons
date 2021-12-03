@@ -47,7 +47,6 @@ public class UserController {
         if(userService.findById(user.getUserId()) != null){
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }else {
-            user.setRoleId(roleService.findById(2));
             User newUser = userService.save(user);
             if (newUser == null){
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

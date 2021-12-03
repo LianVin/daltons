@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { throwSbbDuplicatedSidebarError } from '@sbb-esta/angular-business';
 import { Router } from '@angular/router'
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user/user.service';
@@ -28,7 +27,7 @@ export class LoginComponent implements OnInit {
       }
     );   
     if(this.user.username === this.logins.userName && this.user.password === this.logins.password){
-      this.router.navigateByUrl(""); 
+      this.router.navigateByUrl("news"); 
     }
     else(
       console.log("nicht richtige informationen")

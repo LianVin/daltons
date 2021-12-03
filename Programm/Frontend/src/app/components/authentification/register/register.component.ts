@@ -12,12 +12,20 @@ import { UserService } from 'src/app/service/user/user.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  newUser: FormGroup;
+  public newUser: FormGroup;
   public users: User[] = [];
   public user = <User>{};
   public e: any = {};
   
-  constructor(private _userService: UserService, private _roleService: RoleService) { }
+  constructor(private _userService: UserService, private _roleService: RoleService, private router: Router, fb: FormBuilder) { 
+    this.newUser = fb.group({
+      username: null,
+      firstName: null,
+      lastName: null,
+      email: null,
+      password: null
+    });
+  }
   
   ngOnInit(): void {}
 
@@ -31,19 +39,22 @@ export class RegisterComponent implements OnInit {
         console.log("Username Vorhanden");
       }  
       else{
-        user.firstName = this.newUser.get('username').value;
-        user.username = this.newUser.get('firstName').value;
+        user.firstName = this.newUser.get('firstName').value;
+        user.username = this.newUser.get('username').value;
         user.lastName = this.newUser.get('lastName').value;
         user.email = this.newUser.get('email').value;
         user.password = this.newUser.get('password').value;
         this._roleService.getRolebyId(2).subscribe((result) => {
           user.roleId = result;
+          console.log(user)
         });
         throw this.e;
       }  
     });}
     catch(e){
-      this._userService.createUser(user);
+      console.log(user)
+      this._userService.createUser(user).subscribe();
+      this.router.navigate(['/news/']); 
     }
   }
 }
