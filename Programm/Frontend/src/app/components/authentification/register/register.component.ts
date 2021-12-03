@@ -12,15 +12,9 @@ import { UserService } from 'src/app/service/user/user.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  register: any = {
-    userName: null,
-    firstName: null,
-    lastName: null,
-    email: null,
-    password: null
-  };
-  public users: user[] = [];
-  public user = <user>{};
+  newUser: FormGroup;
+  public users: User[] = [];
+  public user = <User>{};
   public e: any = {};
   
   constructor(private _userService: UserService, private _roleService: RoleService) { }
@@ -28,26 +22,28 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   registeration(): void{
+    let user = new User();
     this._userService.getUser().subscribe(result => {
       this.users = result;
     })
     try{this.users.forEach(userInLoop => {
-      if(userInLoop.username === this.user.username){
+      if(userInLoop.username === user.username){
         console.log("Username Vorhanden");
       }  
       else{
-        this.user.firstName = this.register.firstName;
-        this.user.username = this.register.userName;
-        this.user.lastName = this.register.lastName;
-        this.user.email = this.register.email;
-        this.user.password = this.register.password;
+        user.firstName = this.newUser.get('username').value;
+        user.username = this.newUser.get('firstName').value;
+        user.lastName = this.newUser.get('lastName').value;
+        user.email = this.newUser.get('email').value;
+        user.password = this.newUser.get('password').value;
         this._roleService.getRolebyId(2).subscribe((result) => {
-          this.user.roleId = result;
+          user.roleId = result;
         });
         throw this.e;
       }  
     });}
     catch(e){
-      this._userService.createUser(this.user);
+      this._userService.createUser(user);
     }
+  }
 }

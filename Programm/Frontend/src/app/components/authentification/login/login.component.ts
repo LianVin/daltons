@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { throwSbbDuplicatedSidebarError } from '@sbb-esta/angular-business';
 import { Router } from '@angular/router'
-import { user } from 'src/app/models/user';
+import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user/user.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/service/user/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public user: user;
+  public user: User;
   logins: any = {
     userName: null,
     password: null
