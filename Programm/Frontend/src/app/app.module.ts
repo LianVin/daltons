@@ -27,6 +27,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AlertNewsComponent } from './components/alert-news/alert-news.component';
+import { HistoryComponent } from './components/history/history.component';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { AlertNewsComponent } from './components/alert-news/alert-news.component
     NewNewsComponent,
     AlertNewsComponent,
     FooterComponent,
-    MusicComponent,],
+    MusicComponent,
+    HistoryComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,
