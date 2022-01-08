@@ -5,13 +5,19 @@
 }
 .label{
     font-size: x-large;
-    margin: 2vw;
-    align-self: center;
+    margin: 4vw;
 }
 .input{
-    align-self: center;
-}
+    margin-top: 2vw;
+    margin-left: 2vw;
+    height: 7vh;
+}  
 .button{
-    width: 6vw;
-    height: 3vw;
+    margin-top: 2vw;
+    width: 16vw;
+    height: 8vh;
+}
+.names{
+    margin-top: 10vw;
+    font-size: x-large;
 }

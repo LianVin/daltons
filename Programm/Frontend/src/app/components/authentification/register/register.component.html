@@ -1,17 +1,25 @@
 <div class="register" [formGroup]="newUser">
-    <div>
-        <mat-label class="label">Username:</mat-label>
-        <mat-label class="label">Vorname:</mat-label>
-        <mat-label class="label">Nachname:</mat-label>
-        <mat-label class="label">E-Mail:</mat-label>
-        <mat-label class="label">Password:</mat-label>
+    <div class="names">
+        <div>
+            <mat-label class="label">Username</mat-label>
+            <input class="input" matInput formControlName="username">
+        </div>
+        <div>
+            <mat-label class="label">Vorname</mat-label>
+            <input class="input" matInput formControlName="firstName">
+        </div>
+        <div>
+            <mat-label class="label">Nachname</mat-label>
+            <input class="input" matInput formControlName="lastName">
+        </div>
+        <div>
+            <mat-label class="label">E-Mail</mat-label>
+            <input class="input" matInput formControlName="email">
+        </div>
+        <div>
+            <mat-label class="label">Password</mat-label>
+            <input class="input" matInput formControlName="password">
+        </div>
     </div>
-    <div> 
-        <input class="input" matInput formControlName="username">
-        <input class="input" matInput formControlName="firstName">
-        <input class="input" matInput formControlName="lastName">
-        <input class="input" matInput formControlName="email">
-        <input class="input" matInput formControlName="password">
-    </div> 
     <button class="button" (click)="registeration()">Registrieren</button>
 </div>

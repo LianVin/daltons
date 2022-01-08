@@ -11,7 +11,7 @@ import { UserService } from 'src/app/service/user/user.service';
 export class LoginComponent implements OnInit {
   public user: User;
   logins: any = {
-    userName: null,
+    username: null,
     password: null
   };
 
@@ -21,16 +21,17 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void{
-    this._userService.getUserByName(this.logins.userName).subscribe(
+    this._userService.getUserByName(this.logins.username).subscribe(
       result=>{
         this.user = result;
+        //TODO password
+        if(this.user.username === this.logins.username && this.user.password === this.logins.password){
+          this.router.navigateByUrl("news"); 
+        }
+        else(
+          console.log("nicht richtige informationen")
+        )
       }
     );   
-    if(this.user.username === this.logins.userName && this.user.password === this.logins.password){
-      this.router.navigateByUrl("news"); 
-    }
-    else(
-      console.log("nicht richtige informationen")
-    )
   }
 }
