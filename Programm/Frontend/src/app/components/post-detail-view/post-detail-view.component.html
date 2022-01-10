@@ -1,6 +1,6 @@
 
 <div class="center">
-  <button mat-mini-fab color="primary" class="align-right" routerLink="/alter/news/{{post.postId}}"
+  <button mat-mini-fab *ngIf="isAdmin" color="primary" class="align-right" routerLink="/alter/news/{{post.postId}}"
   aria-label="Example icon button with a menu icon">
   <span class="material-icons">
     edit
@@ -22,7 +22,9 @@
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
-      <button mat-button (click)="createComment()">Komentieren</button>
+      <div *ngIf="isLoggedIn">
+        <button mat-button (click)="createComment()">Komentieren</button>
+      </div>
     </mat-card-actions>
     <mat-card-footer>
     </mat-card-footer>
