@@ -10,6 +10,7 @@ import { PostsComponent } from './components/posts/posts.component';
 import { HistoryComponent } from './components/history/history.component';
 import { MembersComponent } from './components/members/members.component';
 import {UserGuard} from "./user-guard.service";
+import {AdminGuard} from "./admin.guard";
 
 const routes: Routes = [
   {path:'music', component: MusicComponent, canActivate: [UserGuard]},
@@ -21,7 +22,7 @@ const routes: Routes = [
   {path:'news', component: PostsComponent, canActivate: [UserGuard]},
   {path:'news/:id', component: PostDetailViewComponent, canActivate: [UserGuard]},
   {path:'new/news', component: NewNewsComponent, canActivate: [UserGuard] },
-  {path:'alter/news/:id', component: AlertNewsComponent, canActivate: [UserGuard]},
+  {path:'alter/news/:id', component: AlertNewsComponent, canActivate: [UserGuard, AdminGuard]},
   {path:'', component: PostsComponent, canActivate: [UserGuard]}
 ];
 
