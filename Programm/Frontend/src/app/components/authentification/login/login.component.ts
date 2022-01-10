@@ -24,9 +24,15 @@ export class LoginComponent implements OnInit {
     this._userService.getUserByName(this.logins.username).subscribe(
       result=>{
         this.user = result;
-        //TODO password
         if(this.user.username === this.logins.username && this.user.password === this.logins.password){
           this.router.navigateByUrl("news"); 
+          localStorage.setItem("loggedin", "true");
+          if(this.user.roleId.role === "admin"){
+            localStorage.setItem("admin", "true");
+          }
+          else{
+            localStorage.setItem("admin", "false");
+          }
         }
         else(
           console.log("nicht richtige informationen")
