@@ -28,7 +28,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AlertNewsComponent } from './components/alert-news/alert-news.component';
 import { HistoryComponent } from './components/history/history.component';
-import { UserPageComponent } from './components/user-page/user-page.component';
+import { MembersComponent } from './components/members/members.component';
 
 
 @NgModule({
@@ -46,7 +46,7 @@ import { UserPageComponent } from './components/user-page/user-page.component';
     FooterComponent,
     MusicComponent,
     HistoryComponent,
-    UserPageComponent,],
+    MembersComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

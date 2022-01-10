@@ -8,9 +8,11 @@ import { NewNewsComponent } from './components/new-news/new-news.component';
 import { PostDetailViewComponent } from './components/post-detail-view/post-detail-view.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { HistoryComponent } from './components/history/history.component';
+import { MembersComponent } from './components/members/members.component';
 
 const routes: Routes = [
   {path:'music', component: MusicComponent},
+  {path:'members', component: MembersComponent},
   {path:'register', component: RegisterComponent},
   {path:'history', component: HistoryComponent},
   {path:'login', component: LoginComponent},
