@@ -9,11 +9,12 @@ import { PostService } from 'src/app/service/post/post.service';
 })
 export class PostsComponent implements OnInit {
   posts: Post[]=[];
-
+  isAdmin: Boolean;
   constructor(private postService: PostService) {
    }
 
   ngOnInit(): void {
+    this.isAdmin = localStorage.getItem('admin')?.includes('t');
     this.postService.getPosts().subscribe((res)=>{
       this.posts = res;
     },(err)=>{

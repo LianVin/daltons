@@ -14,7 +14,8 @@ import { PostService } from 'src/app/service/post/post.service';
 export class PostDetailViewComponent implements OnInit {
   post: Post;
   value = 'Super Post :)';
-
+  isAdmin: Boolean;
+  isLoggedIn: Boolean;
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
@@ -23,6 +24,8 @@ export class PostDetailViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isAdmin = localStorage.getItem('admin')?.includes('t');
+    this.isLoggedIn = localStorage.getItem('loggedin')?.includes('t');
     this.route.paramMap.subscribe((m) => {
       this.postService
         .getPostbyId(Number.parseInt(m.get('id')))
