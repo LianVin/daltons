@@ -1,5 +1,7 @@
 .example-card {
+  margin: 25px;
     max-width: 50vw;
+    width: 75%;
   }
 
 .align-right{
@@ -7,6 +9,9 @@
   margin-left: auto
 }
 
+.example-header-image {
+  background-size: cover;
+}
   .center{
     display: flex;
     flex-direction: column;

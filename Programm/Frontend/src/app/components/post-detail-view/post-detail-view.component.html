@@ -10,28 +10,31 @@
   <mat-card class="example-card">
     <mat-card-subtitle>{{ post?.createdAt | date: 'fullDate' }}</mat-card-subtitle>
     <mat-card-title>{{post.title}}</mat-card-title>
+    <img mat-card-image src="https://www.thedaltons.ch/wp-content/uploads/2018/12/cropped-Logo-1.jpg" alt="SPACEHOLDER">
     <mat-card-content>
      <!-- <img src="{{post.pictures[0].url}}" alt="{{post.pictures[0].description}}"> -->
       <p>{{post.text}}</p>
     </mat-card-content>
     <mat-divider inset></mat-divider>
     <mat-card-actions>
+      <div *ngIf="isLoggedIn">
       <mat-form-field class="example-form-field" appearance="fill">
         <input matInput type="text" [(ngModel)]="value">
         <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
-      <div *ngIf="isLoggedIn">
         <button mat-button (click)="createComment()">Komentieren</button>
       </div>
     </mat-card-actions>
     <mat-card-footer>
     </mat-card-footer>
   </mat-card>
-
+  <mat-card class="example-card">
+<h3>Comments</h3>
   <div *ngFor="let comment of post.comments">
-    <mat-card>{{comment.text}}</mat-card>
+    {{comment.text}}
   </div>
+  </mat-card>
 
 </div>

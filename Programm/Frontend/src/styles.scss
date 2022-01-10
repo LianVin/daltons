@@ -71,6 +71,7 @@ $FRONTEND-theme: mat-light-theme((
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body,
 html {
+  background-color: lightgoldenrodyellow;
   margin: 0 auto;
 }
 html, body { height: 100%; }

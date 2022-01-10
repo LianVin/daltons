@@ -1,7 +1,15 @@
 .example-card {
-    max-width: 400px;
-  }
-    
-  .align-right{
-    margin-left: 90vw;
-  }
+  max-width: 400px;
+  margin: 50px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+  
+.post {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
