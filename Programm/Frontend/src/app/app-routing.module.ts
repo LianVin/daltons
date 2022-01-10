@@ -8,9 +8,12 @@ import { NewNewsComponent } from './components/new-news/new-news.component';
 import { PostDetailViewComponent } from './components/post-detail-view/post-detail-view.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { HistoryComponent } from './components/history/history.component';
+import { MembersComponent } from './components/members/members.component';
 import {UserGuard} from "./user-guard.service";
 
 const routes: Routes = [
+  {path:'music', component: MusicComponent, canActivate: [UserGuard]},
+  {path:'members', component: MembersComponent, canActivate: [UserGuard]},
   {path:'music', component: MusicComponent, canActivate: [UserGuard]},
   {path:'register', component: RegisterComponent},
   {path:'history', component: HistoryComponent, canActivate: [UserGuard]},
