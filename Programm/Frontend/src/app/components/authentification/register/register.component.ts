@@ -16,8 +16,8 @@ export class RegisterComponent implements OnInit {
   public users: User[] = [];
   public user = <User>{};
   public e: any = {};
-  
-  constructor(private _userService: UserService, private _roleService: RoleService, private router: Router, fb: FormBuilder) { 
+
+  constructor(private _userService: UserService, private _roleService: RoleService, private router: Router, fb: FormBuilder) {
     this.newUser = fb.group({
       username: null,
       firstName: null,
@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
       password: null
     });
   }
-  
+
   ngOnInit(): void {}
 
   registeration(): void{
@@ -36,12 +36,13 @@ export class RegisterComponent implements OnInit {
     user.lastName = this.newUser.get('lastName').value;
     user.email = this.newUser.get('email').value;
     user.password = this.newUser.get('password').value;
+    console.log(user);
     this._userService.getUserByName(user.username).subscribe(result => {
       if (result == null) {
         this._roleService.getRolebyId(1).subscribe((result) => {
           user.roleId = result;
           this._userService.createUser(user).subscribe();
-          this.router.navigate(['/news/']); 
+          this.router.navigate(['/news/']);
         });
       } else {
         console.log("Username already in use")

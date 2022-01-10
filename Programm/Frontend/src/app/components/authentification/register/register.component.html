@@ -1,25 +1,28 @@
-<div class="register" [formGroup]="newUser">
-    <div class="names">
-        <div>
-            <mat-label class="label">Username</mat-label>
-            <input class="input" matInput formControlName="username">
-        </div>
-        <div>
-            <mat-label class="label">Vorname</mat-label>
-            <input class="input" matInput formControlName="firstName">
-        </div>
-        <div>
-            <mat-label class="label">Nachname</mat-label>
-            <input class="input" matInput formControlName="lastName">
-        </div>
-        <div>
-            <mat-label class="label">E-Mail</mat-label>
-            <input class="input" matInput formControlName="email">
-        </div>
-        <div>
-            <mat-label class="label">Password</mat-label>
-            <input class="input" matInput formControlName="password">
-        </div>
-    </div>
-    <button class="button" (click)="registeration()">Registrieren</button>
-</div>
+<mat-card class="login" [formGroup]="newUser">
+  <mat-form-field class="inp">
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username">
+  </mat-form-field>
+
+  <mat-form-field class="inp">
+    <mat-label>Vorname</mat-label>
+    <input matInput formControlName="firstName">
+  </mat-form-field>
+
+  <mat-form-field class="inp">
+    <mat-label>Nachname</mat-label>
+    <input matInput formControlName="lastName">
+  </mat-form-field>
+
+  <mat-form-field class="inp">
+    <mat-label>E-Mail</mat-label>
+    <input type="email" matInput formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field class="inp">
+    <mat-label>Passwort</mat-label>
+    <input type="password" matInput formControlName="password">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="registeration()">Registrieren</button>
+</mat-card>

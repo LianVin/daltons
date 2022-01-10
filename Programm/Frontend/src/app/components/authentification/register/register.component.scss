@@ -1,23 +1,8 @@
-.register{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.login {
+  width: 50%;
+  margin: 30px auto auto;
 }
-.label{
-    font-size: x-large;
-    margin: 4vw;
-}
-.input{
-    margin-top: 2vw;
-    margin-left: 2vw;
-    height: 7vh;
-}  
-.button{
-    margin-top: 2vw;
-    width: 16vw;
-    height: 8vh;
-}
-.names{
-    margin-top: 10vw;
-    font-size: x-large;
+
+mat-form-field {
+  width: 100%;
 }

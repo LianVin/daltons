@@ -1,11 +1,11 @@
-<div class="login">
-    <div class="names">
-        <mat-label class="label">Username</mat-label>
-        <mat-label class="label">Password</mat-label>
-    </div>
-    <div> 
-        <input class="input" matInput [(ngModel)]="logins.username">
-        <input class="input" matInput [(ngModel)]="logins.password">
-    </div> 
-    <button class="button" (click)="login()">Login</button>
-</div>
+<mat-card class="login">
+  <mat-form-field class="inp">
+    <mat-label>Username</mat-label>
+    <input matInput [(ngModel)]="logins.username">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput type="password" [(ngModel)]="logins.password">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="login()">Login</button>
+</mat-card>
