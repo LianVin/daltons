@@ -8,16 +8,18 @@ import { NewNewsComponent } from './components/new-news/new-news.component';
 import { PostDetailViewComponent } from './components/post-detail-view/post-detail-view.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { HistoryComponent } from './components/history/history.component';
+import {UserGuard} from "./user-guard.service";
 
 const routes: Routes = [
-  {path:'music', component: MusicComponent},
+  {path:'music', component: MusicComponent, canActivate: [UserGuard]},
   {path:'register', component: RegisterComponent},
-  {path:'history', component: HistoryComponent},
+  {path:'history', component: HistoryComponent, canActivate: [UserGuard]},
   {path:'login', component: LoginComponent},
-  {path:'news', component: PostsComponent},
-  {path:'news/:id', component: PostDetailViewComponent},
-  {path:'new/news', component: NewNewsComponent },
-  {path:'alter/news/:id', component: AlertNewsComponent}
+  {path:'news', component: PostsComponent, canActivate: [UserGuard]},
+  {path:'news/:id', component: PostDetailViewComponent, canActivate: [UserGuard]},
+  {path:'new/news', component: NewNewsComponent, canActivate: [UserGuard] },
+  {path:'alter/news/:id', component: AlertNewsComponent, canActivate: [UserGuard]},
+  {path:'', component: NewNewsComponent, canActivate: [UserGuard]}
 ];
 
 @NgModule({
