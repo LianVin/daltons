@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:'news/:id', component: PostDetailViewComponent, canActivate: [UserGuard]},
   {path:'new/news', component: NewNewsComponent, canActivate: [UserGuard] },
   {path:'alter/news/:id', component: AlertNewsComponent, canActivate: [UserGuard]},
-  {path:'', component: NewNewsComponent, canActivate: [UserGuard]}
+  {path:'', component: PostsComponent, canActivate: [UserGuard]}
 ];
 
 @NgModule({

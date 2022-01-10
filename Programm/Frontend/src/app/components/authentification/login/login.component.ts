@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
         if(this.user.username === this.logins.username && this.user.password === this.logins.password){
           this.router.navigateByUrl("news"); 
           localStorage.setItem("loggedin", "true");
-          if(this.user.roleId.role === "admin"){
+          if(this.user.roleId.role === "Admin"){
             localStorage.setItem("admin", "true");
           }
           else{
