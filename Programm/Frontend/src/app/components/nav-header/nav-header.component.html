@@ -18,6 +18,9 @@
         <a class="tap" href="members" mat-button>Members</a>
         <a class="tap" href="history" mat-button>History</a>
         <a class="tap" routerLink="music" mat-button>Music</a>
+        <a *ngIf="!logedin" class="tap" routerLink="login" mat-button>Login</a>
+        <a *ngIf="logedin" class="tap" routerLink="login" (click)="logout" mat-button>Logout</a>
+        <a class="tap" routerLink="register" mat-button>Register</a>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -30,7 +33,10 @@
           <a class="sidenavtap" href="news" mat-button>News</a>
           <a class="sidenavtap" href="members" mat-button>Members</a>
           <a class="sidenavtap" href="history" mat-button>History</a>
-          <a class="sidenavtap" routerLink="music" mat-button>Music</a>
+          <a class="sidenavtap" routerLink="music" mat-button>Music</a> 
+          <a *ngIf="!logedin" class="sidenavtap" routerLink="login" mat-button>Login</a>
+          <a *ngIf="logedin" class="sidenavtap" routerLink="login" (click)="logout()" mat-button>Logout</a>
+          <a class="sidenavtap" routerLink="register" mat-button>Register</a>
       </div>
       </mat-nav-list>
     </mat-sidenav>

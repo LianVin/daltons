@@ -7,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavHeaderComponent implements OnInit {
   
+  logedin: Boolean;
   constructor() { }
   
 
   ngOnInit(): void {
+    this.logedin = localStorage.getItem('loggedin')?.includes('t');
+  }
+
+
+  logedout(){
+    localStorage.clear();
   }
 
 }
